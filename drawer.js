@@ -7,11 +7,11 @@ function draw(ctx, data) {
   
   ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
 
-  for (i in data.transactions) {
-    const e1 = data.transactions[i].e1
-    const e2 = data.transactions[i].e2
+  for (t of data.transactions) {
+    const e1 = t.e1
+    const e2 = t.e2
 
-    ctx.lineWidth = data.transactions[i].count;
+    ctx.lineWidth = t.count;
 
     ctx.beginPath();
     ctx.moveTo(data.entreprises[e1].x, data.entreprises[e1].y);
@@ -21,9 +21,9 @@ function draw(ctx, data) {
 
   ctx.fillStyle = 'rgb(0, 255, 0)';
 
-  for (i in data.entreprises) {
+  for (e of data.entreprises) {
     ctx.beginPath();
-    ctx.arc(data.entreprises[i].x, data.entreprises[i].y, 5 * data.entreprises[i].size, 0, 2 * Math.PI);
+    ctx.arc(e.x, e.y, 5 * e.size, 0, 2 * Math.PI);
     ctx.fill()
   }
 

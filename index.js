@@ -9,7 +9,8 @@ init(data);
 console.log(JSON.stringify(data));
 setInterval(() => {
 
-  update(data);
+  updateMove(data);
+  applyMove(data);
   draw(ctx, data);
 
 }, 100);

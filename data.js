@@ -8,6 +8,8 @@ function createData() {
     entreprises.push({
       x: WIDTH / 2,
       y: HEIGHT / 2,
+      dx: 0,
+      dy: 0,
       size: getRandomIntBetween(1, 4)
     });
   }

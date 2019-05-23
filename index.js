@@ -13,5 +13,5 @@ setInterval(() => {
   applyMove(data);
   draw(ctx, data);
 
-}, 100);
+}, 10);
 

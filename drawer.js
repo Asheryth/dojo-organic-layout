@@ -2,6 +2,8 @@
 function draw(ctx, data) {
 
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+  transform(ctx, data);
   
   ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
 
@@ -25,4 +27,26 @@ function draw(ctx, data) {
     ctx.fill()
   }
 
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+}
+
+function transform(ctx, data) {
+  var xMin = WIDTH;
+  var yMin = HEIGHT;
+  var xMax = 0;
+  var yMax = 0;
+
+  for (e of data.entreprises) {
+    xMin = Math.min(xMin, e.x);
+    xMax = Math.max(xMax, e.x);
+    yMin = Math.min(yMin, e.y);
+    yMax = Math.max(yMax, e.y);
+  }
+
+  ctx.translate(WIDTH / 2, HEIGHT / 2);
+
+  const factor = Math.min((WIDTH - BORDER * 2) / (xMax - xMin), (HEIGHT - BORDER * 2) / (yMax - yMin));
+  ctx.scale(factor, factor);
+  
+  ctx.translate(-(xMin + xMax) / 2, -(yMin + yMax) / 2);
 }

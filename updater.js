@@ -20,17 +20,40 @@
  * Ne modifier que x et y
  */
 function init(data) {
-  
+  for (e of data.entreprises) {
+    e.x = getRandomInt(WIDTH);
+    e.y = getRandomInt(HEIGHT);
+  }
 }
 
 /**
  * Ne modifier que dx et dy
  */
 function updateMove(data) {
-  
-}
+  // dx et dy sont déjà remis à zero 
 
-const MAX_MOVE_AMPL = 20;
+  for (i = 0; i < data.entreprises.length; ++i) {
+    const e1 = data.entreprises[i];
+    for (j = i + 1; j < data.entreprises.length; ++j) {
+      const e2 = data.entreprises[j];
+
+      e1.dx += 0; // A REMPLIR
+      e1.dy += 0; // A REMPLIR
+      e2.dx += 0; // A REMPLIR
+      e2.dy += 0; // A REMPLIR
+    }
+  }
+
+  for (t of data.transactions) {
+    const e1 = data.entreprises[t.e1];
+    const e2 = data.entreprises[t.e2];
+
+    e1.dx += 0; // A REMPLIR
+    e1.dy += 0; // A REMPLIR
+    e2.dx += 0; // A REMPLIR
+    e2.dy += 0; // A REMPLIR
+  }
+}
 
 function applyMove(data) {
   for (e of data.entreprises) {

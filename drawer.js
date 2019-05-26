@@ -2,7 +2,7 @@
 function draw(ctx, data) {
 
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
-
+  
   transform(ctx, data);
   
   ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
@@ -11,7 +11,7 @@ function draw(ctx, data) {
     const e1 = t.e1
     const e2 = t.e2
 
-    ctx.lineWidth = t.count;
+    ctx.lineWidth = t.count * 0.2;
 
     ctx.beginPath();
     ctx.moveTo(data.entreprises[e1].x, data.entreprises[e1].y);
@@ -23,7 +23,7 @@ function draw(ctx, data) {
 
   for (e of data.entreprises) {
     ctx.beginPath();
-    ctx.arc(e.x, e.y, 5 * e.size, 0, 2 * Math.PI);
+    ctx.arc(e.x, e.y, e.size, 0, 2 * Math.PI);
     ctx.fill()
   }
 

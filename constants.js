@@ -1,0 +1,7 @@
+const NB_ENTREPRISES = 3;
+
+const MAX_MOVE_AMPL = 0.1;
+
+const REPULSION_FACTOR = 100;
+
+const ATTRACTION_FACTOR = 0.01;

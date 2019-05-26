@@ -1,5 +1,3 @@
-const NB_ENTREPRISES = 100;
-
 function createData() {
 
   const entreprises = [];
